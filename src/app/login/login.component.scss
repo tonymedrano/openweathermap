@@ -1,0 +1,17 @@
+.login {
+  &__button {
+    display: flex;
+    border: none;
+    color: black;
+    background-color: #d1ecf1;
+  }
+
+  &__spinner {
+    zoom: 0.2;
+    margin-top: 1rem;
+    margin-right: 4rem;
+  }
+  &__fields {
+    width: 100%;
+  }
+}

@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Weather in {{data?.name}}</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>
+    <img [src]="weatherIconURL + data?.weather[0].icon +'.png'">
+    {{data?.weather[0].description}} / {{data?.main.temp}}°
+  </h3>
+  <app-map [markers]="markers" [zoom]="-1"></app-map>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

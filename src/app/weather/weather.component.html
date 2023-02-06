@@ -1,0 +1,31 @@
+<div class="card mt-4 weather">
+  <h4 class="card-header">Welcome to the Weather App Demo!!</h4>
+  <div class="card-body">
+    <mat-spinner *ngIf="loading" class="weather__spinner"></mat-spinner>
+    <ul *ngIf="users" class="weather__users">
+      <li *ngFor="let user of users">
+        Logged as:
+        <h2><mat-icon>supervised_user_circle</mat-icon>{{user.firstName}} {{user.lastName}}</h2>
+      </li>
+    </ul>
+    <h2><mat-icon>location_city</mat-icon>Weather in your city</h2>
+    <form class="weather__form">
+      <mat-form-field class="weather__full-width" appearance="fill">
+        <mat-label>Find city</mat-label>
+        <input aria-label="Find city" matInput [formControl]="searchInput" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayCityName"
+          (optionSelected)='addToFavorites($event.option.value)'>
+          <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+            {{city.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="weather__table">
+    <h2><mat-icon>favorite</mat-icon>Favorites&nbsp;<mat-spinner *ngIf="loadingModal"
+        class="weather__spinner"></mat-spinner>
+    </h2>
+    <app-table [data]="favorites"></app-table>
+  </div>
+</div>

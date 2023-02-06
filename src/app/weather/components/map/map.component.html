@@ -1,0 +1,8 @@
+<div class="map">
+  <google-map width="100%" height="400px" [zoom]="zoom">
+    <map-marker [position]="markers.position" [label]="markers.label">
+    </map-marker>
+  </google-map>
+
+  <p>Lattitude: {{markers.position.lat}} - Longitude: {{markers.position.lng}}</p>
+</div>
